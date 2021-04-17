@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
+
+* {
+  font-family: 'Mulish', sans-serif;
+}
+
+.h6 {
+  font-family: 'Mulish', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  /* identical to box height */
+  color: #FFFFFF;
+  text-shadow: 0px 1px 7px #FFD700;
+}
+
+.card {
+  min-width: 300px;
+}
+
+.carouselExampleIndicators .item {
+  height: 300px;
+}
+
+.item img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 300px;
+}
+
+.card-r {
+  width: 100%;
+  height: fit-content;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 17px;
+}
+
+.carousel-inner {
+  border-radius: 20px;
+}
+
+.carousel-item {
+  border-radius: 20px;
+}
+
+.img-dish {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.79) 0%, rgba(255, 255, 255, 0) 67.29%), url('../../../assets/images/sample_makanan.png');
+  border-radius: 17px;
+  transform: matrix(1.5, 0, 0, 1, 25, 0);
+  border-radius: 20px;
+}
+
+
+.card-title {
+  font-size: 0.8rem;
+  color: #E1BC00;
+  font-weight: 600;
+}
+
+.small {
+  font-size: 60%;
+}
+
+
+
+.qty .count {
+  color: #000;
+  display: inline-block;
+  vertical-align: top;
+  font-weight: 400;
+  line-height: 10px;
+  padding: 0 2px;
+  min-width: 35px;
+  text-align: center;
+}
+
+.qty .plus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 20px;
+  height: 20px;
+  font: 20px/1 Arial, sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
+
+.qty .minus {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  color: white;
+  width: 20px;
+  height: 20px;
+  font: 20px/1 Arial, sans-serif;
+  text-align: center;
+  border-radius: 50%;
+  background-clip: padding-box;
+}
+
+div {
+  text-align: center;
+}
+
+.minus:hover {
+  background-color: #717fe0 !important;
+}
+
+.plus:hover {
+  background-color: #717fe0 !important;
+}
+
+/*Prevent text selection*/
+span {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input {
+  border: 0;
+  width: 2%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:disabled {
+  background-color: white;
+}

@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
+
+.row-1 {
+  height: inherit;
+}
+
+.card {
+  background-color: transparent;
+  border: 0px;
+}
+
+
+.btn-pesan {
+  width: 267px;
+  height: 60px;
+  background: #151415;
+  border-radius: 50px;
+  font-family: 'Mulish', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  /* identical to box height */
+  color: #FFFFFF;
+  text-shadow: 0px 1px 7px #FFD700;
+}
+
+
+@media (max-width: 575.98px) {
+  .card-img-top {
+    width: 60%;
+  }
+}

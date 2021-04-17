@@ -1,0 +1,45 @@
+<div class="container-fluid line-1 mb-3">
+  <div class="row justify-content-between no-gutters">
+    <a class="navbar-brand" href="#">
+      <img src="../../assets/images/logo_kedan.png" class="d-inline-block align-top img-logo" alt="">
+    </a>
+    <div class="d-flex col-6 col-md-4 justify-content-end align-items-center">
+      <a class="navbar-brand m-0 cart-s" href="#">
+        <img src="../../assets/images/order-cart.png" class="d-inline-block align-top img-cart" alt="">
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">dinner_dining</mat-icon>
+      Makanan
+    </ng-template>
+    <div class="p-2">
+      <app-makanan></app-makanan>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">coffee</mat-icon>
+      Minuman
+    </ng-template>
+    <div class="p-2">
+      <app-minuman></app-minuman>
+    </div>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">playlist_add_check</mat-icon>
+      Pesanan
+    </ng-template>
+    <div class="p-2">
+      <app-pesanan></app-pesanan>
+    </div>
+  </mat-tab>
+</mat-tab-group>

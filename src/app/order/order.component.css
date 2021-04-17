@@ -1,0 +1,112 @@
+.example-tab-icon {
+  margin-right: 8px;
+}
+
+.line-1 {
+  background-color: transparent;
+}
+
+.img-logo {
+  width: 100px;
+}
+
+.img-cart {
+  width: 50px;
+}
+
+
+.cart-s {
+  padding: 15px;
+  border-radius: 20px;
+  background: white;
+  -webkit-box-shadow: 3px 3px 10px 1px #00000073;
+  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 3px 3px 10px 1px #00000073;
+  /* Firefox 3.5 - 3.6 */
+  box-shadow: 3px 3px 10px 1px #00000073;
+  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+
+::ng-deep .mat-tab-label {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: #1f1f1f;
+  font-weight: 700;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* ::ng-deep .mat-tab-label-container {
+  border: 1px solid #54b63c;
+  border-radius: 10px;
+} */
+
+::ng-deep .mat-tab-header-pagination-chevron {
+  border-color: #1f1f1f;
+}
+
+::ng-deep .mat-tab-header,
+.mat-tab-nav-bar {
+  border-bottom: 0px;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+::ng-deep .mat-ink-bar {
+  color: white;
+  background-color: #ffffff !important;
+  height: 5px !important;
+}
+
+.md-tab.ng-scope.ng-isolate-scope.md-ink-ripple.md-active {
+  background-color: transparent;
+  color: #5a5555;
+  font-weight: 700;
+}
+
+.md-tab.ng-scope.ng-isolate-scope.md-ink-ripple {
+  background-color: transparent;
+  color: #5a5555;
+  font-weight: 700;
+}
+
+.mat-tab-label:selected {
+  min-width: 25px !important;
+  padding: 5px;
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+}
+
+::ng-deep .mat-tab-labels {
+  justify-content: space-between !important;
+}
+
+::ng-deep .mat-tab-body-wrapper {
+  min-height: 100vh !important;
+}
+
+
+::ng-deep .mat-tab-body-content {
+  background: #000;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+
+@media (max-width: 575.98px) {
+  .img-logo {
+    width: 50px;
+  }
+
+  .img-cart {
+    width: 30px;
+  }
+
+  .cart-s {
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+}
