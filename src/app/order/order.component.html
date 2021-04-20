@@ -1,4 +1,4 @@
-<div class="container-fluid line-1 mb-3">
+<div class="container-fluid line-1 mb-3 pad-is-hidden desk-is-hidden">
   <div class="row justify-content-between no-gutters">
     <a class="navbar-brand" href="#">
       <img src="../../assets/images/logo_kedan.png" class="d-inline-block align-top img-logo" alt="">
@@ -12,7 +12,7 @@
 </div>
 
 
-<mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
+<mat-tab-group class=" pad-is-hidden desk-is-hidden" #tabGroup (selectedTabChange)="tabChanged($event)">
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon class="example-tab-icon">dinner_dining</mat-icon>
@@ -43,3 +43,19 @@
     </div>
   </mat-tab>
 </mat-tab-group>
+
+
+<div class="container-fluid h-100 mobile-is-hidden">
+  <div class="row justify-content-center align-items-center text-center row-1">
+
+    <div class="card card-warning" style="width: 20rem;">
+      <div class="card-body">
+        <img class="card-img-top" src="assets/images/logo_kedan.png" alt="Card image cap">
+        <h5 class="card-title">Hi! Kedan...</h5>
+        <p class="card-text">Aplikasi pemesanan ini hanya bisa dibuka di mobile ya.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>

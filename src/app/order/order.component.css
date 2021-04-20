@@ -122,3 +122,69 @@
   }
 
 }
+
+
+@media all and (min-width: 43.688em) and (max-width: 61.188em) {
+  /* 699px to 979px */
+
+  .pad-is-hidden {
+    display: none;
+  }
+
+}
+
+@media all and (min-width: 61.250em) {
+  /* 980px */
+
+  .desk-is-hidden {
+    display: none;
+  }
+
+}
+
+@media all and (max-width: 43.688em) {
+  /* 489px */
+
+  .mobile-is-hidden {
+    display: none;
+  }
+
+}
+
+
+/* ============================================================= */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
+
+.row-1 {
+  height: inherit;
+}
+
+.card-warning {
+  background-color: transparent;
+  border: 0px;
+}
+
+
+.btn-pesan {
+  width: 267px;
+  height: 60px;
+  background: #151415;
+  border-radius: 50px;
+  font-family: 'Mulish', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 23px;
+  /* identical to box height */
+  color: #FFFFFF;
+  text-shadow: 0px 1px 7px #FFD700;
+}
+
+
+@media (max-width: 575.98px) {
+  .card-img-top {
+    width: 60%;
+  }
+}
