@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButton, MatButtonModule, MatCardModule, MatIconModule, MatRippleModule, MatTabsModule } from '@angular/material';
+import { MatButton, MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatRippleModule, MatTabsModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { OrderComponent } from './order/order.component';
 import { MakananComponent } from './order/makanan/makanan.component';
@@ -14,6 +14,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { DataserviceService } from './service/dataservice.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShortNumberPipe } from './pipe/short-number.pipe';
+import { OrderDialogComponent } from './dialog/order-dialog/order-dialog.component';
+import { CustomDialogComponent } from './dialog/custom-dialog/custom-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ShortNumberPipe } from './pipe/short-number.pipe';
     MakananComponent,
     MinumanComponent,
     PesananComponent,
-    ShortNumberPipe
+    ShortNumberPipe,
+    OrderDialogComponent,
+    CustomDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +42,11 @@ import { ShortNumberPipe } from './pipe/short-number.pipe';
     MatCardModule,
     MatButtonModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
 
   ],
+  entryComponents: [CustomDialogComponent, OrderDialogComponent],
   providers: [DataserviceService],
   bootstrap: [AppComponent]
 })

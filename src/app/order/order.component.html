@@ -4,8 +4,9 @@
       <img src="../../assets/images/logo_kedan.png" class="d-inline-block align-top img-logo" alt="">
     </a>
     <div class="d-flex col-6 col-md-4 justify-content-end align-items-center">
-      <a class="navbar-brand m-0 cart-s" href="#">
+      <a (click)="goToListOrder()" class="navbar-brand m-0 cart-s">
         <img src="../../assets/images/order-cart.png" class="d-inline-block align-top img-cart" alt="">
+        <span class="badge">{{ cart }}</span>
       </a>
     </div>
   </div>
@@ -19,7 +20,7 @@
       Makanan
     </ng-template>
     <div class="p-2 page bg-black">
-      <app-makanan></app-makanan>
+      <app-makanan (someEvent)="getBadge($event)"></app-makanan>
     </div>
   </mat-tab>
 
@@ -52,7 +53,8 @@
       <div class="card-body">
         <img class="card-img-top" src="assets/images/logo_kedan.png" alt="Card image cap">
         <h5 class="card-title">Hi! Kedan...</h5>
-        <p class="card-text">Aplikasi pemesanan ini hanya bisa dibuka di mobile ya.
+        <p class="card-text">Aplikasi pemesanan ini hanya tersedia dalam ukuran mobile, jika anda ingin memakai browser
+          melalui Desktop atau Pad silahkan kecilkan ukuran browser anda.
         </p>
       </div>
     </div>

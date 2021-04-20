@@ -2,6 +2,12 @@
   margin-right: 8px;
 }
 
+.badge {
+  font-size: 100%;
+  color: #434343;
+  font-weight: 400;
+}
+
 .line-1 {
   background-color: transparent;
 }
@@ -100,6 +106,7 @@
 
 .bg-black {
   background: #000;
+  height: inherit;
 }
 
 .page {

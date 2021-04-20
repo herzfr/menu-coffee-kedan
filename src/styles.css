@@ -30,3 +30,15 @@ body {
   -webkit-box-shadow: inset 0 0 6px #f8e218;
   box-shadow: inset 0 0 6px #f8e218;
 }
+
+.backdropBackground {
+  /* background-color: transparent; */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  will-change: auto;
+}
+
+.cdk-overlay-container {
+  z-index: 9999 !important;
+  overflow: auto;
+}

@@ -29,7 +29,7 @@
     <p class="h6 my-2 text-left">Makanan Agak Ringan</p>
     <div class="card card-m">
       <div *ngFor="let item of makanan_agak_ringan">
-        <div class="row card-r m-0 mb-1">
+        <div (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
             <div class="col-3">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
@@ -41,9 +41,9 @@
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
-                    <span class="minus bg-dark">-</span>
+                    <!-- <span class="minus bg-dark">-</span>
                     <input type="number" class="count" name="qty" value="0">
-                    <span class="plus bg-dark">+</span>
+                    <span class="plus bg-dark">+</span> -->
                   </div>
                 </div>
               </div>
@@ -67,9 +67,9 @@
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
-                    <span class="minus bg-dark">-</span>
+                    <!-- <span class="minus bg-dark">-</span>
                     <input type="number" class="count" name="qty" value="0">
-                    <span class="plus bg-dark">+</span>
+                    <span class="plus bg-dark">+</span> -->
                   </div>
                 </div>
               </div>
@@ -93,9 +93,9 @@
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
-                    <span class="minus bg-dark">-</span>
+                    <!-- <span class="minus bg-dark">-</span>
                     <input type="number" class="count" name="qty" value="0">
-                    <span class="plus bg-dark">+</span>
+                    <span class="plus bg-dark">+</span> -->
                   </div>
                 </div>
               </div>
@@ -119,9 +119,9 @@
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
-                    <span class="minus bg-dark">-</span>
+                    <!-- <span class="minus bg-dark">-</span>
                     <input type="number" class="count" name="qty" value="0">
-                    <span class="plus bg-dark">+</span>
+                    <span class="plus bg-dark">+</span> -->
                   </div>
                 </div>
               </div>
@@ -145,9 +145,9 @@
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
-                    <span class="minus bg-dark">-</span>
+                    <!-- <span class="minus bg-dark">-</span>
                     <input type="number" class="count" name="qty" value="0">
-                    <span class="plus bg-dark">+</span>
+                    <span class="plus bg-dark">+</span> -->
                   </div>
                 </div>
               </div>
@@ -171,9 +171,9 @@
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
-                    <span class="minus bg-dark">-</span>
+                    <!-- <span class="minus bg-dark">-</span>
                     <input type="number" class="count" name="qty" value="0">
-                    <span class="plus bg-dark">+</span>
+                    <span class="plus bg-dark">+</span> -->
                   </div>
                 </div>
               </div>
@@ -197,9 +197,9 @@
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
-                    <span class="minus bg-dark">-</span>
+                    <!-- <span class="minus bg-dark">-</span>
                     <input type="number" class="count" name="qty" value="0">
-                    <span class="plus bg-dark">+</span>
+                    <span class="plus bg-dark">+</span> -->
                   </div>
                 </div>
               </div>

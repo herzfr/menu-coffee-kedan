@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { OrderDialogComponent } from 'src/app/dialog/order-dialog/order-dialog.component';
 import { DataserviceService } from 'src/app/service/dataservice.service';
 declare var $: any;
 
@@ -9,6 +11,7 @@ declare var $: any;
   styleUrls: ['./makanan.component.css']
 })
 export class MakananComponent implements OnInit {
+  @Output() someEvent = new EventEmitter<string>();
 
   customOptions: OwlOptions = {
     loop: true,
@@ -46,7 +49,7 @@ export class MakananComponent implements OnInit {
   private soup;
   private ayam_geprek;
 
-  constructor(private dataService: DataserviceService) {
+  constructor(private dataService: DataserviceService, private dialog: MatDialog) {
 
   }
 
@@ -101,21 +104,6 @@ export class MakananComponent implements OnInit {
     })
 
 
-
-
-
-    $(document).ready(function () {
-      $('.count').prop('disabled', true);
-      $(document).on('click', '.plus', function () {
-        $('.count').val(parseInt($('.count').val()) + 1);
-      });
-      $(document).on('click', '.minus', function () {
-        $('.count').val(parseInt($('.count').val()) - 1);
-        if ($('.count').val() == 0) {
-          $('.count').val(0);
-        }
-      });
-    });
   }
 
   getDataImage(event) {
@@ -124,6 +112,55 @@ export class MakananComponent implements OnInit {
     } else {
       return event;
     }
+  }
+
+  choose(event) {
+    console.log(event);
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = event;
+    dialogConfig.backdropClass = "backdropBackground";
+    dialogConfig.disableClose = true;
+    dialogConfig.minWidth = "min-content";
+
+    const dialogChooseMenu = this.dialog.open(
+      OrderDialogComponent,
+      dialogConfig
+    );
+
+    dialogChooseMenu.afterClosed().subscribe(res => {
+      if (res != undefined) {
+        console.log(res);
+
+        // let list: any = new Array;
+        // list = [data];
+        // finalData = list;
+        // localStorage.setItem('history', JSON.stringify(list));
+
+        let a = new Array;
+        if (localStorage.getItem('cart') == null) {
+          console.log(res);
+          a.push(res)
+          localStorage.setItem('cart', JSON.stringify(a));
+          this.callParent()
+        } else {
+          console.log('ada isi');
+          a = JSON.parse(localStorage.getItem('cart') || '[]');
+          a.push(res)
+          localStorage.removeItem('cart')
+          localStorage.setItem('cart', JSON.stringify(a));
+          console.log(a);
+          this.callParent()
+        }
+
+
+        // localStorage.setItem('cart', JSON.stringify(res));
+      }
+    })
+  }
+
+  callParent() {
+    this.someEvent.emit('update');
   }
 
 
