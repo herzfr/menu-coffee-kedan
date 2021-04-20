@@ -26,103 +26,187 @@
     </a>
   </div>
   <div>
-    <p class="h6 my-2 text-left">Rekomendasi</p>
-    <ng-container>
-      <div class="row card-r m-0">
-        <div class="row no-gutters">
-          <div class="col-3">
-            <img class="card-img img-dish" src="../../../assets/images/sample_makanan.png" alt="Suresh Dasari Card">
-          </div>
-          <div class="col-9 d-flex align-items-center">
-            <div class="card-body p-0 pl-5 py-2">
-              <h6 class="card-title mb-1 text-left">Rice Bowl Sambal Matah</h6>
-              <p class="card-text small mb-1 text-left">Nasi dengan topping ayam
-                dan sambal matah.</p>
-              <div class="col d-flex p-0">
-                <h5 class="mb-1">20K</h5>
-                <div class="qty">
-                  <span class="minus bg-dark">-</span>
-                  <input type="number" class="count" name="qty" value="0">
-                  <span class="plus bg-dark">+</span>
+    <p class="h6 my-2 text-left">Makanan Agak Ringan</p>
+    <div class="card card-m">
+      <div *ngFor="let item of makanan_agak_ringan">
+        <div class="row card-r m-0 mb-1">
+          <div class="row no-gutters">
+            <div class="col-3">
+              <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
+            </div>
+            <div class="col-9 d-flex align-items-center">
+              <div class="card-body p-0 pl-5 py-2">
+                <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
+                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <div class="col d-flex p-0">
+                  <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
+                  <div class="qty">
+                    <span class="minus bg-dark">-</span>
+                    <input type="number" class="count" name="qty" value="0">
+                    <span class="plus bg-dark">+</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </ng-container>
-    <p class="h6 my-2 text-left">Makanan Ringan</p>
-    <ng-container>
-      <div class="row card-r m-0 mb-1">
-        <div class="row no-gutters">
-          <div class="col-3">
-            <img class="card-img img-dish" src="../../../assets/images/sample_makanan.png" alt="Suresh Dasari Card">
-          </div>
-          <div class="col-9 d-flex align-items-center">
-            <div class="card-body p-0 pl-5 py-2">
-              <h6 class="card-title mb-1 text-left">Rice Bowl Sambal Matah</h6>
-              <p class="card-text small mb-1 text-left">Nasi dengan topping ayam
-                dan sambal matah.</p>
-              <div class="col d-flex p-0">
-                <h5 class="mb-1">20K</h5>
-                <div class="qty">
-                  <span class="minus bg-dark">-</span>
-                  <input type="number" class="count" name="qty" value="0">
-                  <span class="plus bg-dark">+</span>
+    </div>
+    <p class="h6 my-2 text-left">Makanan Agak Berat</p>
+    <div class="card card-m">
+      <div *ngFor="let item of makanan_agak_berat">
+        <div class="row card-r m-0 mb-1">
+          <div class="row no-gutters">
+            <div class="col-3">
+              <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
+            </div>
+            <div class="col-9 d-flex align-items-center">
+              <div class="card-body p-0 pl-5 py-2">
+                <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
+                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <div class="col d-flex p-0">
+                  <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
+                  <div class="qty">
+                    <span class="minus bg-dark">-</span>
+                    <input type="number" class="count" name="qty" value="0">
+                    <span class="plus bg-dark">+</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </ng-container>
-    <ng-container>
-      <div class="row card-r m-0 mb-1">
-        <div class="row no-gutters">
-          <div class="col-3">
-            <img class="card-img img-dish" src="../../../assets/images/sample_makanan.png" alt="Suresh Dasari Card">
-          </div>
-          <div class="col-9 d-flex align-items-center">
-            <div class="card-body p-0 pl-5 py-2">
-              <h6 class="card-title mb-1 text-left">Rice Bowl Sambal Matah</h6>
-              <p class="card-text small mb-1 text-left">Nasi dengan topping ayam
-                dan sambal matah.</p>
-              <div class="col d-flex p-0">
-                <h5 class="mb-1">20K</h5>
-                <div class="qty">
-                  <span class="minus bg-dark">-</span>
-                  <input type="number" class="count" name="qty" value="0">
-                  <span class="plus bg-dark">+</span>
+    </div>
+    <p class="h6 my-2 text-left">Indomie</p>
+    <div class="card card-m">
+      <div *ngFor="let item of indomie">
+        <div class="row card-r m-0 mb-1">
+          <div class="row no-gutters">
+            <div class="col-3">
+              <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
+            </div>
+            <div class="col-9 d-flex align-items-center">
+              <div class="card-body p-0 pl-5 py-2">
+                <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
+                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <div class="col d-flex p-0">
+                  <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
+                  <div class="qty">
+                    <span class="minus bg-dark">-</span>
+                    <input type="number" class="count" name="qty" value="0">
+                    <span class="plus bg-dark">+</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </ng-container>
-    <ng-container>
-      <div class="row card-r m-0 mb-1">
-        <div class="row no-gutters">
-          <div class="col-3">
-            <img class="card-img img-dish" src="../../../assets/images/sample_makanan.png" alt="Suresh Dasari Card">
-          </div>
-          <div class="col-9 d-flex align-items-center">
-            <div class="card-body p-0 pl-5 py-2">
-              <h6 class="card-title mb-1 text-left">Rice Bowl Sambal Matah</h6>
-              <p class="card-text small mb-1 text-left">Nasi dengan topping ayam
-                dan sambal matah.</p>
-              <div class="col d-flex p-0">
-                <h5 class="mb-1">20K</h5>
-                <div class="qty">
-                  <span class="minus bg-dark">-</span>
-                  <input type="number" class="count" name="qty" value="0">
-                  <span class="plus bg-dark">+</span>
+    </div>
+    <p class="h6 my-2 text-left">Nasi Goreng</p>
+    <div class="card card-m">
+      <div *ngFor="let item of nasigoreng">
+        <div class="row card-r m-0 mb-1">
+          <div class="row no-gutters">
+            <div class="col-3">
+              <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
+            </div>
+            <div class="col-9 d-flex align-items-center">
+              <div class="card-body p-0 pl-5 py-2">
+                <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
+                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <div class="col d-flex p-0">
+                  <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
+                  <div class="qty">
+                    <span class="minus bg-dark">-</span>
+                    <input type="number" class="count" name="qty" value="0">
+                    <span class="plus bg-dark">+</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </ng-container>
+    </div>
+    <p class="h6 my-2 text-left">Chicken Steak</p>
+    <div class="card card-m">
+      <div *ngFor="let item of chikensteak">
+        <div class="row card-r m-0 mb-1">
+          <div class="row no-gutters">
+            <div class="col-3">
+              <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
+            </div>
+            <div class="col-9 d-flex align-items-center">
+              <div class="card-body p-0 pl-5 py-2">
+                <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
+                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <div class="col d-flex p-0">
+                  <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
+                  <div class="qty">
+                    <span class="minus bg-dark">-</span>
+                    <input type="number" class="count" name="qty" value="0">
+                    <span class="plus bg-dark">+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="h6 my-2 text-left">Soup</p>
+    <div class="card card-m">
+      <div *ngFor="let item of soup">
+        <div class="row card-r m-0 mb-1">
+          <div class="row no-gutters">
+            <div class="col-3">
+              <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
+            </div>
+            <div class="col-9 d-flex align-items-center">
+              <div class="card-body p-0 pl-5 py-2">
+                <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
+                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <div class="col d-flex p-0">
+                  <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
+                  <div class="qty">
+                    <span class="minus bg-dark">-</span>
+                    <input type="number" class="count" name="qty" value="0">
+                    <span class="plus bg-dark">+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="h6 my-2 text-left">Ayam Geprek</p>
+    <div class="card card-m">
+      <div *ngFor="let item of ayam_geprek">
+        <div class="row card-r m-0 mb-1">
+          <div class="row no-gutters">
+            <div class="col-3">
+              <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
+            </div>
+            <div class="col-9 d-flex align-items-center">
+              <div class="card-body p-0 pl-5 py-2">
+                <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
+                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <div class="col d-flex p-0">
+                  <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
+                  <div class="qty">
+                    <span class="minus bg-dark">-</span>
+                    <input type="number" class="count" name="qty" value="0">
+                    <span class="plus bg-dark">+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

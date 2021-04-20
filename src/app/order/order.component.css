@@ -88,12 +88,24 @@
 }
 
 
-::ng-deep .mat-tab-body-content {
+/* ::ng-deep .mat-tab-body-content {
   background: #000;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
 
+::ng-deep .bgWhite {
+  background: #ffffff;
+} */
+
+.bg-black {
+  background: #000;
+}
+
+.page {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
 
 @media (max-width: 575.98px) {
   .img-logo {

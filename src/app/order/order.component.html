@@ -12,13 +12,13 @@
 </div>
 
 
-<mat-tab-group>
+<mat-tab-group #tabGroup (selectedTabChange)="tabChanged($event)">
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon class="example-tab-icon">dinner_dining</mat-icon>
       Makanan
     </ng-template>
-    <div class="p-2">
+    <div class="p-2 page bg-black">
       <app-makanan></app-makanan>
     </div>
   </mat-tab>
@@ -28,7 +28,7 @@
       <mat-icon class="example-tab-icon">coffee</mat-icon>
       Minuman
     </ng-template>
-    <div class="p-2">
+    <div class="p-2 page bg-black">
       <app-minuman></app-minuman>
     </div>
   </mat-tab>
@@ -38,7 +38,7 @@
       <mat-icon class="example-tab-icon">playlist_add_check</mat-icon>
       Pesanan
     </ng-template>
-    <div class="p-2">
+    <div class="p-2 page bg-white h-100">
       <app-pesanan></app-pesanan>
     </div>
   </mat-tab>

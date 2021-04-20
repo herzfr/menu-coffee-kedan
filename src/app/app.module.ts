@@ -11,6 +11,9 @@ import { MakananComponent } from './order/makanan/makanan.component';
 import { MinumanComponent } from './order/minuman/minuman.component';
 import { PesananComponent } from './order/pesanan/pesanan.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { DataserviceService } from './service/dataservice.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ShortNumberPipe } from './pipe/short-number.pipe';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,14 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     OrderComponent,
     MakananComponent,
     MinumanComponent,
-    PesananComponent
+    PesananComponent,
+    ShortNumberPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-
+    HttpClientModule,
     // OTHER
     CarouselModule,
 
@@ -35,8 +39,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     MatButtonModule,
     MatTabsModule,
     MatIconModule
+
   ],
-  providers: [],
+  providers: [DataserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
