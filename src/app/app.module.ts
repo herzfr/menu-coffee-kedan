@@ -43,7 +43,8 @@ import { CustomDialogComponent } from './dialog/custom-dialog/custom-dialog.comp
     MatButtonModule,
     MatTabsModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule
 
   ],
   entryComponents: [CustomDialogComponent, OrderDialogComponent],

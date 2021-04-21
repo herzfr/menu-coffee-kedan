@@ -1,1 +1,50 @@
-<p>pesanan works!</p>
+<div class="container-fluid mt-4 p-0">
+
+  <p class="h6 my-2 text-center">Daftar Pesanan Anda</p>
+  <p class="small text-muted my-2 text-center">Klik tombol X jika ingin menghapus pesanan</p>
+  <div class="card card-m">
+    <div *ngFor="let item of cart; let i = index;">
+      <div class="row card-r m-0 mb-1">
+        <div class="row no-gutters">
+          <div class="col-4">
+            <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
+          </div>
+          <div class="col-8 d-flex align-items-center">
+            <div class="card-body p-0 pl-5 py-2">
+              <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
+              <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+              <div class="col d-flex p-0 justify-content-between align-items-center">
+                <h5 class="m-0">{{ item.harga | shortNumber }}</h5>
+                <p class="m-0 medium"> Qty {{ item.qty }}</p>
+                <button (click)="delete(i)" mat-button>
+                  <img src="assets/svgs/cancel.svg" class="material-icons ico-delete">
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col d-flex p-0 justify-content-between align-items-center my-2">
+    <h5 class="m-0">Item Total :</h5>
+    <h5 class="m-0">{{ total | number: '1.0-0' }}</h5>
+  </div>
+
+  <div class="col d-flex p-0 justify-content-between align-items-center mb-2">
+    <h5 class="m-0">Pajak {{ pajak | percent }} :</h5>
+    <h5 class="m-0">{{ totalPajak | number: '1.0-0'  }}</h5>
+  </div>
+
+  <div class="col d-flex p-0 justify-content-between align-items-center mb-2">
+    <h5 class="m-0 font-weight-bold">Total :</h5>
+    <h5 class="m-0 font-weight-bold">Rp. {{ grandTotal | number: '1.0-0' }}</h5>
+  </div>
+
+  <div class="col d-flex p-0 justify-content-center align-items-center mb-2">
+    <button (click)="doOrder()" mat-button class="btn-pesan">Checkout</button>
+  </div>
+
+
+</div>

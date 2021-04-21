@@ -1,6 +1,6 @@
 <div class="container-fluid line-1 mb-3 pad-is-hidden desk-is-hidden">
   <div class="row justify-content-between no-gutters">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand">
       <img src="../../assets/images/logo_kedan.png" class="d-inline-block align-top img-logo" alt="">
     </a>
     <div class="d-flex col-6 col-md-4 justify-content-end align-items-center">
@@ -30,7 +30,7 @@
       Minuman
     </ng-template>
     <div class="p-2 page bg-black">
-      <app-minuman></app-minuman>
+      <app-minuman (someEvent)="getBadge($event)"></app-minuman>
     </div>
   </mat-tab>
 
@@ -40,7 +40,7 @@
       Pesanan
     </ng-template>
     <div class="p-2 page bg-white h-100">
-      <app-pesanan></app-pesanan>
+      <app-pesanan #child (someEvent)="getBadge($event)"></app-pesanan>
     </div>
   </mat-tab>
 </mat-tab-group>

@@ -31,10 +31,10 @@
       <div *ngFor="let item of makanan_agak_ringan">
         <div (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
             </div>
-            <div class="col-9 d-flex align-items-center">
+            <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
                 <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
@@ -55,12 +55,12 @@
     <p class="h6 my-2 text-left">Makanan Agak Berat</p>
     <div class="card card-m">
       <div *ngFor="let item of makanan_agak_berat">
-        <div class="row card-r m-0 mb-1">
+        <div (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
             </div>
-            <div class="col-9 d-flex align-items-center">
+            <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
                 <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
@@ -81,12 +81,12 @@
     <p class="h6 my-2 text-left">Indomie</p>
     <div class="card card-m">
       <div *ngFor="let item of indomie">
-        <div class="row card-r m-0 mb-1">
+        <div (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
             </div>
-            <div class="col-9 d-flex align-items-center">
+            <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
                 <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
@@ -107,12 +107,12 @@
     <p class="h6 my-2 text-left">Nasi Goreng</p>
     <div class="card card-m">
       <div *ngFor="let item of nasigoreng">
-        <div class="row card-r m-0 mb-1">
+        <div (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
             </div>
-            <div class="col-9 d-flex align-items-center">
+            <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
                 <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
@@ -133,12 +133,12 @@
     <p class="h6 my-2 text-left">Chicken Steak</p>
     <div class="card card-m">
       <div *ngFor="let item of chikensteak">
-        <div class="row card-r m-0 mb-1">
+        <div (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
             </div>
-            <div class="col-9 d-flex align-items-center">
+            <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
                 <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
@@ -159,12 +159,12 @@
     <p class="h6 my-2 text-left">Soup</p>
     <div class="card card-m">
       <div *ngFor="let item of soup">
-        <div class="row card-r m-0 mb-1">
+        <div (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
             </div>
-            <div class="col-9 d-flex align-items-center">
+            <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
                 <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
@@ -185,12 +185,12 @@
     <p class="h6 my-2 text-left">Ayam Geprek</p>
     <div class="card card-m">
       <div *ngFor="let item of ayam_geprek">
-        <div class="row card-r m-0 mb-1">
+        <div (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
             </div>
-            <div class="col-9 d-flex align-items-center">
+            <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
                 <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
