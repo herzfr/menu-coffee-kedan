@@ -5,7 +5,7 @@
 
   <ng-container *ngFor="let item of daftarPesanan; let i = index;">
     <div class="row">
-      <mat-icon class="check">done</mat-icon> : {{ item.name }}, Qty : {{ item.qty }}
+      <mat-icon class="check">done</mat-icon> {{ item.name }}, Qty : {{ item.qty }}
     </div>
   </ng-container>
 
@@ -15,12 +15,19 @@
     </mat-form-field>
   </form>
 
-  <p class="my-3">
+  <!-- <p class="my-3">
     <mat-form-field class="example-full-width">
       <mat-label>Masukan permintaan tambahan</mat-label>
       <textarea [(ngModel)]="desc" matInput></textarea>
     </mat-form-field>
-  </p>
+  </p> -->
+
+  <label class='text-gray-800 font-regular'>Note:</label>
+
+  <div class="bg-white rounded-lg border shadow-lg d-flex text-area">
+    <textarea [(ngModel)]="desc" id='comment' maxlength='100'
+      class='bg-gray-200 p-1 h-100 w-100 w-full mt-0 good'></textarea>
+  </div>
 
   <div class="justify-content-center">
     <div class="col d-flex p-0 justify-content-between align-items-center my-2">

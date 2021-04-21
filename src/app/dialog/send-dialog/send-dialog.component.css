@@ -7,6 +7,9 @@
   color: #2c4e2c;
 }
 
+.text-area {
+  height: 200px;
+}
 
 ::ng-deep .mat-dialog-container {
   min-width: 300px;

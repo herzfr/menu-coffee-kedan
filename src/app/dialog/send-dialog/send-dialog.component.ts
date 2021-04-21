@@ -47,7 +47,7 @@ export class SendDialogComponent implements OnInit {
 
       let obj: any = new Object;
       obj.nama = "Hi, Saya " + this.nama;
-      obj.menu = "Saya ingin memesan:%0a" + order;
+      obj.menu = "Saya ingin memesan:%0a" + order + "%0a";
       obj.desc = this.desc ? this.desc : "";
       obj.total = "Item Total : " + this.total;
       obj.pajak = "Pajak 10% : " + this.totalPajak;

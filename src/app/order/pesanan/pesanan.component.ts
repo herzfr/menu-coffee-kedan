@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { CustomDialogComponent } from 'src/app/dialog/custom-dialog/custom-dialog.component';
 import { SendDialogComponent } from 'src/app/dialog/send-dialog/send-dialog.component';
 
 @Component({
@@ -18,6 +19,8 @@ export class PesananComponent implements OnInit {
   private totalPajak: number = 0;
   private grandTotal: number = 0;
 
+  private isHaveOrder: boolean = false;
+
   constructor(private dialog: MatDialog) {
 
   }
@@ -31,6 +34,11 @@ export class PesananComponent implements OnInit {
     let a = new Array;
     a = JSON.parse(localStorage.getItem('cart') || '[]');
     console.log(a);
+    if (a.length > 0) {
+      this.isHaveOrder = true;
+    } else {
+      this.isHaveOrder = false;
+    }
     this.cart = a;
     this.checkTotal()
   }
@@ -69,7 +77,7 @@ export class PesananComponent implements OnInit {
       })
       console.log(this.total);
       this.totalPajak = this.pajak * this.total;
-      this.grandTotal = this.total - this.totalPajak;
+      this.grandTotal = this.total + this.totalPajak;
     }
   }
 
@@ -77,64 +85,87 @@ export class PesananComponent implements OnInit {
     this.someEvent.emit('update');
   }
 
+  clearAllOrder() {
+    localStorage.removeItem('cart');
+    this.cart = []
+    this.checkBadge()
+    this.callParent()
+  }
+
 
   doOrder() {
 
-    // this.cart.forEach((item, index) => {
-    //   // console.log("pesanan ke " + (index + 1) + ":" + item.name + ", qty : " + item.qty + "%0a");
-    //   // infoOrder.push((index + 1) + ". " + item.name + ", qty : " + item.qty + "%0a")
-    // });
-    // order = infoOrder.map(x => x).join("\n");
-    // console.log(order);
+    let data = new Array;
+    data = JSON.parse(localStorage.getItem('cart') || '[]');
+    if (data.length > 0) {
 
+      let obj: any = new Object;
+      obj.pesanan = this.cart;
+      obj.total = this.total;
+      obj.pajak = this.totalPajak;
+      obj.grandTotal = this.grandTotal;
 
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.data = obj;
+      dialogConfig.backdropClass = "backdropBackground";
+      dialogConfig.disableClose = true;
+      dialogConfig.minWidth = "min-content";
 
-    let obj: any = new Object;
-    obj.pesanan = this.cart;
-    obj.total = this.total;
-    obj.pajak = this.totalPajak;
-    obj.grandTotal = this.grandTotal;
+      const dialogChooseMenu = this.dialog.open(
+        SendDialogComponent,
+        dialogConfig
+      );
 
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.data = obj;
-    dialogConfig.backdropClass = "backdropBackground";
-    dialogConfig.disableClose = true;
-    dialogConfig.minWidth = "min-content";
+      let phone = "+628561112025"
+      let infoOrder = new Array;
+      let order
 
-    const dialogChooseMenu = this.dialog.open(
-      SendDialogComponent,
-      dialogConfig
-    );
+      dialogChooseMenu.afterClosed().subscribe(res => {
+        console.log(res);
+        if (res != undefined) {
 
-    let phone = "+628561112025"
-    let infoOrder = new Array;
-    let order
-
-    dialogChooseMenu.afterClosed().subscribe(res => {
-      console.log(res);
-      if (res != undefined) {
-
-        for (const key in res) {
-          if (Object.prototype.hasOwnProperty.call(res, key)) {
-            const element = res[key];
-            console.log(element);
-            infoOrder.push(element + "%0a")
+          for (const key in res) {
+            if (Object.prototype.hasOwnProperty.call(res, key)) {
+              const element = res[key];
+              console.log(element);
+              infoOrder.push(element + "%0a")
+            }
           }
+          infoOrder.push("%0a")
+          infoOrder.push("Terima Kasih CK :) %0a")
+
+          order = infoOrder.map(x => x).join("\n");
+          console.log(order);
+
+          window.open(
+            "https://api.whatsapp.com/send?phone=" + phone + "&text=" + order,
+            // "_blank"
+          );
+          localStorage.removeItem('cart')
         }
-        infoOrder.push("%0a")
-        infoOrder.push("Terima Kasih CK :) %0a")
 
-        order = infoOrder.map(x => x).join("\n");
-        console.log(order);
+      })
 
-        window.open(
-          "https://api.whatsapp.com/send?phone=" + phone + "&text=" + order,
-          // "_blank"
-        );
-        localStorage.removeItem('cart')
-      }
+    } else {
+      const dialogConfig2 = new MatDialogConfig();
 
-    })
+      let obj: any = new Object();
+      obj.icon = "priority_high";
+      obj.message = "Mohon isi pemesanan terlebih dahulu";
+
+      dialogConfig2.data = obj;
+      dialogConfig2.backdropClass = "backdropBackground";
+      dialogConfig2.disableClose = true;
+      dialogConfig2.minWidth = "min-content";
+
+      const dialogCustom = this.dialog.open(
+        CustomDialogComponent,
+        dialogConfig2
+      );
+      dialogCustom.afterClosed();
+    }
+
+
   }
 
 }
