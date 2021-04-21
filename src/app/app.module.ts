@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButton, MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatRippleModule, MatTabsModule } from '@angular/material';
+import { MatButton, MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatRippleModule, MatTabsModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { OrderComponent } from './order/order.component';
 import { MakananComponent } from './order/makanan/makanan.component';
@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ShortNumberPipe } from './pipe/short-number.pipe';
 import { OrderDialogComponent } from './dialog/order-dialog/order-dialog.component';
 import { CustomDialogComponent } from './dialog/custom-dialog/custom-dialog.component';
+import { SendDialogComponent } from './dialog/send-dialog/send-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { CustomDialogComponent } from './dialog/custom-dialog/custom-dialog.comp
     PesananComponent,
     ShortNumberPipe,
     OrderDialogComponent,
-    CustomDialogComponent
+    CustomDialogComponent,
+    SendDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,10 +47,11 @@ import { CustomDialogComponent } from './dialog/custom-dialog/custom-dialog.comp
     MatTabsModule,
     MatIconModule,
     MatDialogModule,
-    MatIconModule
+    MatInputModule,
+    FormsModule
 
   ],
-  entryComponents: [CustomDialogComponent, OrderDialogComponent],
+  entryComponents: [CustomDialogComponent, OrderDialogComponent, SendDialogComponent],
   providers: [DataserviceService],
   bootstrap: [AppComponent]
 })

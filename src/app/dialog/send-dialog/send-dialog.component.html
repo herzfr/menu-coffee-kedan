@@ -1,0 +1,50 @@
+<h1 mat-dialog-title class="text-center">
+  <mat-icon>restaurant_menu</mat-icon>
+</h1>
+<div mat-dialog-content class="text-center">
+
+  <ng-container *ngFor="let item of daftarPesanan; let i = index;">
+    <div class="row">
+      <mat-icon class="check">done</mat-icon> : {{ item.name }}, Qty : {{ item.qty }}
+    </div>
+  </ng-container>
+
+  <form class="example-form my-3">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Masukan Nama" [(ngModel)]="nama" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  </form>
+
+  <p class="my-3">
+    <mat-form-field class="example-full-width">
+      <mat-label>Masukan permintaan tambahan</mat-label>
+      <textarea [(ngModel)]="desc" matInput></textarea>
+    </mat-form-field>
+  </p>
+
+  <div class="justify-content-center">
+    <div class="col d-flex p-0 justify-content-between align-items-center my-2">
+      <h6 class="m-0">Item Total :</h6>
+      <h6 class="m-0">{{ total | number: '1.0-0' }}</h6>
+    </div>
+
+    <div class="col d-flex p-0 justify-content-between align-items-center mb-2">
+      <h6 class="m-0">Pajak {{ pajak | percent }} :</h6>
+      <h6 class="m-0">{{ totalPajak | number: '1.0-0'  }}</h6>
+    </div>
+
+    <div class="col d-flex p-0 justify-content-between align-items-center mb-2">
+      <h6 class="m-0 font-weight-bold">Total :</h6>
+      <h6 class="m-0 font-weight-bold">Rp. {{ grandTotal | number: '1.0-0' }}</h6>
+    </div>
+  </div>
+
+
+
+  <div mat-dialog-actions class="justify-content-center">
+    <button mat-button (click)="onNoClick()" class="m-0">Batal</button>
+    <button mat-raised-button color="accent" (click)="onYesOrder()">Pesan Sekarang</button>
+  </div>
+
+
+</div>

@@ -1,0 +1,14 @@
+::ng-deep .material-icons {
+  font-size: 40px;
+}
+
+.check {
+  font-size: 20px !important;
+  color: #2c4e2c;
+}
+
+
+::ng-deep .mat-dialog-container {
+  min-width: 300px;
+  width: 99%;
+}

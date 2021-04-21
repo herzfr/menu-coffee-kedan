@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { SendDialogComponent } from 'src/app/dialog/send-dialog/send-dialog.component';
 
 @Component({
   selector: 'app-pesanan',
@@ -16,7 +18,7 @@ export class PesananComponent implements OnInit {
   private totalPajak: number = 0;
   private grandTotal: number = 0;
 
-  constructor() {
+  constructor(private dialog: MatDialog) {
 
   }
 
@@ -71,10 +73,68 @@ export class PesananComponent implements OnInit {
     }
   }
 
-
-
   callParent() {
     this.someEvent.emit('update');
+  }
+
+
+  doOrder() {
+
+    // this.cart.forEach((item, index) => {
+    //   // console.log("pesanan ke " + (index + 1) + ":" + item.name + ", qty : " + item.qty + "%0a");
+    //   // infoOrder.push((index + 1) + ". " + item.name + ", qty : " + item.qty + "%0a")
+    // });
+    // order = infoOrder.map(x => x).join("\n");
+    // console.log(order);
+
+
+
+    let obj: any = new Object;
+    obj.pesanan = this.cart;
+    obj.total = this.total;
+    obj.pajak = this.totalPajak;
+    obj.grandTotal = this.grandTotal;
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = obj;
+    dialogConfig.backdropClass = "backdropBackground";
+    dialogConfig.disableClose = true;
+    dialogConfig.minWidth = "min-content";
+
+    const dialogChooseMenu = this.dialog.open(
+      SendDialogComponent,
+      dialogConfig
+    );
+
+    let phone = "+628561112025"
+    let infoOrder = new Array;
+    let order
+
+    dialogChooseMenu.afterClosed().subscribe(res => {
+      console.log(res);
+      if (res != undefined) {
+
+        for (const key in res) {
+          if (Object.prototype.hasOwnProperty.call(res, key)) {
+            const element = res[key];
+            console.log(element);
+            infoOrder.push(element + "%0a")
+          }
+        }
+        infoOrder.push("%0a")
+        infoOrder.push("Terima Kasih CK :) %0a")
+
+        order = infoOrder.map(x => x).join("\n");
+        console.log(order);
+
+        window.open(
+          "https://api.whatsapp.com/send?phone=" + phone + "&text=" + order,
+          // "_blank"
+        );
+        localStorage.removeItem('cart')
+      }
+
+    })
   }
 
 }

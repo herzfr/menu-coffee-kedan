@@ -111,7 +111,7 @@
     <p class="h6 my-2 text-left">Mocktail</p>
     <div class="card card-m">
       <div *ngFor="let item of mocktail">
-        <div class="row card-r m-0 mb-1">
+        <div (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
             <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
@@ -134,8 +134,6 @@
         </div>
       </div>
     </div>
-
-
 
   </div>
 </div>
