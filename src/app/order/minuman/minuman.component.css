@@ -40,6 +40,7 @@
 
 .carousel-inner {
   border-radius: 20px;
+  max-height: 180px;
 }
 
 .carousel-item {
