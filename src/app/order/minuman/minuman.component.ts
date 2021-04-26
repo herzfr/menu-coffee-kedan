@@ -22,29 +22,29 @@ export class MinumanComponent implements OnInit {
   ngOnInit() {
 
     this.dataService.getProductById(1).subscribe(res => {
-      console.log(res.values);
-      if (res.status == 200) {
+      // console.log(res);
+      if (res.codestatus == "00") {
         this.coffee = res.values;
       }
     })
 
     this.dataService.getProductById(2).subscribe(res => {
-      console.log(res.values);
-      if (res.status == 200) {
+      // console.log(res);
+      if (res.codestatus == "00") {
         this.noncoffee = res.values;
       }
     })
 
     this.dataService.getProductById(3).subscribe(res => {
-      console.log(res.values);
-      if (res.status == 200) {
+      // console.log(res);
+      if (res.codestatus == "00") {
         this.juice = res.values;
       }
     })
 
     this.dataService.getProductById(4).subscribe(res => {
-      console.log(res.values);
-      if (res.status == 200) {
+      // console.log(res);
+      if (res.codestatus == "00") {
         this.mocktail = res.values;
       }
     })

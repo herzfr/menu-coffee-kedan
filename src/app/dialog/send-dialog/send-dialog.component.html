@@ -35,7 +35,7 @@
       <h6 class="m-0">{{ total | number: '1.0-0' }}</h6>
     </div>
 
-    <div class="col d-flex p-0 justify-content-between align-items-center mb-2">
+    <!-- <div class="col d-flex p-0 justify-content-between align-items-center mb-2">
       <h6 class="m-0">Pajak {{ pajak | percent }} :</h6>
       <h6 class="m-0">{{ totalPajak | number: '1.0-0'  }}</h6>
     </div>
@@ -43,14 +43,15 @@
     <div class="col d-flex p-0 justify-content-between align-items-center mb-2">
       <h6 class="m-0 font-weight-bold">Total :</h6>
       <h6 class="m-0 font-weight-bold">Rp. {{ grandTotal | number: '1.0-0' }}</h6>
-    </div>
+    </div> -->
   </div>
 
 
 
   <div mat-dialog-actions class="justify-content-center">
-    <button mat-button (click)="onNoClick()" class="m-0">Batal</button>
-    <button mat-raised-button color="accent" (click)="onYesOrder()">Pesan Sekarang</button>
+    <button mat-button (click)="onNoClick()" class="m-0 col-12 mb-1">Batal</button>
+    <button mat-raised-button color="accent" (click)="onYesOrder(1)" class="m-0 col-12 mb-1">Pesan Via No Meja </button>
+    <button mat-raised-button color="accent" (click)="onYesOrder(2)" class="m-0 col-12 mb-1">Pesan Via Kasir</button>
   </div>
 
 

@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { CustomDialogComponent } from 'src/app/dialog/custom-dialog/custom-dialog.component';
 import { OrderDialogComponent } from 'src/app/dialog/order-dialog/order-dialog.component';
 import { DataserviceService } from 'src/app/service/dataservice.service';
 declare var $: any;
@@ -55,36 +56,37 @@ export class MakananComponent implements OnInit {
 
   ngOnInit() {
     this.dataService.getProductById(5).subscribe(res => {
-      console.log(res.values);
-      if (res.status == 200) {
+      // console.log(res);
+      // this.testData(res)
+      if (res.codestatus == "00") {
         this.makanan_agak_ringan = res.values;
       }
     })
 
     this.dataService.getProductById(6).subscribe(res => {
-      console.log(res.values);
-      if (res.status == 200) {
+      // console.log(res);
+      if (res.codestatus == "00") {
         this.makanan_agak_berat = res.values;
       }
     })
 
     this.dataService.getProductById(7).subscribe(res => {
-      console.log(res.values);
-      if (res.status == 200) {
+      // console.log(res);
+      if (res.codestatus == "00") {
         this.indomie = res.values;
       }
     })
 
     this.dataService.getProductById(8).subscribe(res => {
-      console.log(res.values);
-      if (res.status == 200) {
+      // console.log(res);
+      if (res.codestatus == "00") {
         this.nasigoreng = res.values;
       }
     })
 
     this.dataService.getProductById(9).subscribe(res => {
-      console.log(res.values);
-      if (res.status == 200) {
+      // console.log(res);
+      if (res.codestatus == "00") {
         this.chikensteak = res.values;
       }
     })
@@ -161,6 +163,32 @@ export class MakananComponent implements OnInit {
 
   callParent() {
     this.someEvent.emit('update');
+  }
+
+
+  testData(event) {
+    console.log(event);
+
+    let obj: any = new Object();
+    obj.icon = "priority_high";
+    obj.message = JSON.stringify(event);
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = obj;
+    dialogConfig.backdropClass = "backdropBackground";
+    dialogConfig.disableClose = true;
+    dialogConfig.maxWidth = "300px";
+
+    const dialogChooseMenu = this.dialog.open(
+      CustomDialogComponent,
+      dialogConfig
+    );
+
+    dialogChooseMenu.afterClosed().subscribe(res => {
+      console.log(res);
+
+
+    })
   }
 
 

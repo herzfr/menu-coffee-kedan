@@ -26,7 +26,7 @@
     <p class="h6 my-2 text-left">Makanan Agak Ringan</p>
     <div class="card card-m">
       <div *ngFor="let item of makanan_agak_ringan">
-        <div (click)="choose(item)" class="row card-r m-0 mb-1">
+        <button [disabled]="!item.available" (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
             <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
@@ -34,7 +34,8 @@
             <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
-                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="item.available" class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="!item.available" class="card-text small mb-1 text-left text-danger">Stok habis</p>
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
@@ -46,13 +47,13 @@
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </div>
     </div>
     <p class="h6 my-2 text-left">Makanan Agak Berat</p>
     <div class="card card-m">
       <div *ngFor="let item of makanan_agak_berat">
-        <div (click)="choose(item)" class="row card-r m-0 mb-1">
+        <button [disabled]="!item.available" (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
             <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
@@ -60,7 +61,8 @@
             <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
-                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="item.available" class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="!item.available" class="card-text small mb-1 text-left text-danger">Stok habis</p>
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
@@ -72,13 +74,13 @@
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </div>
     </div>
     <p class="h6 my-2 text-left">Indomie</p>
     <div class="card card-m">
       <div *ngFor="let item of indomie">
-        <div (click)="choose(item)" class="row card-r m-0 mb-1">
+        <button [disabled]="!item.available" (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
             <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
@@ -86,7 +88,8 @@
             <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
-                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="item.available" class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="!item.available" class="card-text small mb-1 text-left text-danger">Stok habis</p>
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
@@ -98,13 +101,13 @@
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </div>
     </div>
     <p class="h6 my-2 text-left">Nasi Goreng</p>
     <div class="card card-m">
       <div *ngFor="let item of nasigoreng">
-        <div (click)="choose(item)" class="row card-r m-0 mb-1">
+        <button [disabled]="!item.available" (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
             <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
@@ -112,7 +115,8 @@
             <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
-                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="item.available" class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="!item.available" class="card-text small mb-1 text-left text-danger">Stok habis</p>
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
@@ -124,13 +128,13 @@
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </div>
     </div>
     <p class="h6 my-2 text-left">Chicken Steak</p>
     <div class="card card-m">
       <div *ngFor="let item of chikensteak">
-        <div (click)="choose(item)" class="row card-r m-0 mb-1">
+        <button [disabled]="!item.available" (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
             <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
@@ -138,7 +142,8 @@
             <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
-                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="item.available" class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="!item.available" class="card-text small mb-1 text-left text-danger">Stok habis</p>
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
@@ -150,13 +155,13 @@
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </div>
     </div>
     <p class="h6 my-2 text-left">Soup</p>
     <div class="card card-m">
       <div *ngFor="let item of soup">
-        <div (click)="choose(item)" class="row card-r m-0 mb-1">
+        <button [disabled]="!item.available" (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
             <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
@@ -164,7 +169,8 @@
             <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
-                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="item.available" class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="!item.available" class="card-text small mb-1 text-left text-danger">Stok habis</p>
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
@@ -176,13 +182,13 @@
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </div>
     </div>
     <p class="h6 my-2 text-left">Ayam Geprek</p>
     <div class="card card-m">
       <div *ngFor="let item of ayam_geprek">
-        <div (click)="choose(item)" class="row card-r m-0 mb-1">
+        <button [disabled]="!item.available" (click)="choose(item)" class="row card-r m-0 mb-1">
           <div class="row no-gutters">
             <div class="col-4">
               <img class="card-img img-dish" [src]="getDataImage(item.avatar)" alt="Suresh Dasari Card">
@@ -190,7 +196,8 @@
             <div class="col-8 d-flex align-items-center">
               <div class="card-body p-0 pl-5 py-2">
                 <h6 class="card-title mb-1 text-left">{{ item.name }}</h6>
-                <p class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="item.available" class="card-text small mb-1 text-left">{{ item.desc }}</p>
+                <p *ngIf="!item.available" class="card-text small mb-1 text-left text-danger">Stok habis</p>
                 <div class="col d-flex p-0">
                   <h5 class="mb-1">{{ item.harga | shortNumber }}</h5>
                   <div class="qty">
@@ -202,7 +209,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </button>
       </div>
     </div>
   </div>

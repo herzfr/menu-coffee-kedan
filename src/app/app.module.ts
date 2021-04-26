@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButton, MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatRippleModule, MatTabsModule } from '@angular/material';
+import { MatButton, MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatRippleModule, MatSelectModule, MatTabsModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { OrderComponent } from './order/order.component';
 import { MakananComponent } from './order/makanan/makanan.component';
@@ -18,6 +18,9 @@ import { OrderDialogComponent } from './dialog/order-dialog/order-dialog.compone
 import { CustomDialogComponent } from './dialog/custom-dialog/custom-dialog.component';
 import { SendDialogComponent } from './dialog/send-dialog/send-dialog.component';
 import { FormsModule } from '@angular/forms';
+import { QRCodeModule } from 'angularx-qrcode';
+import { QrcodeDialogComponent } from './dialog/qrcode-dialog/qrcode-dialog.component';
+import { TableDialogComponent } from './dialog/table-dialog/table-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,15 +33,21 @@ import { FormsModule } from '@angular/forms';
     ShortNumberPipe,
     OrderDialogComponent,
     CustomDialogComponent,
-    SendDialogComponent
+    SendDialogComponent,
+    QrcodeDialogComponent,
+    TableDialogComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+
     // OTHER
     CarouselModule,
+    QRCodeModule,
+
 
     // MATERIAL
     MatRippleModule,
@@ -48,10 +57,10 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    MatSelectModule
 
   ],
-  entryComponents: [CustomDialogComponent, OrderDialogComponent, SendDialogComponent],
+  entryComponents: [CustomDialogComponent, OrderDialogComponent, SendDialogComponent, QrcodeDialogComponent, TableDialogComponent],
   providers: [DataserviceService],
   bootstrap: [AppComponent]
 })

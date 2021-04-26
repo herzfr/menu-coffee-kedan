@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { QRCodeComponent } from 'angularx-qrcode';
 import { CustomDialogComponent } from 'src/app/dialog/custom-dialog/custom-dialog.component';
+import { QrcodeDialogComponent } from 'src/app/dialog/qrcode-dialog/qrcode-dialog.component';
 import { SendDialogComponent } from 'src/app/dialog/send-dialog/send-dialog.component';
 
 @Component({
@@ -102,8 +104,8 @@ export class PesananComponent implements OnInit {
       let obj: any = new Object;
       obj.pesanan = this.cart;
       obj.total = this.total;
-      obj.pajak = this.totalPajak;
-      obj.grandTotal = this.grandTotal;
+      // obj.pajak = this.totalPajak;
+      // obj.grandTotal = this.grandTotal;
 
       const dialogConfig = new MatDialogConfig();
       dialogConfig.data = obj;
@@ -124,24 +126,32 @@ export class PesananComponent implements OnInit {
         console.log(res);
         if (res != undefined) {
 
-          for (const key in res) {
-            if (Object.prototype.hasOwnProperty.call(res, key)) {
-              const element = res[key];
-              console.log(element);
-              infoOrder.push(element + "%0a")
+          if (res['ordercode'] === 3) {
+            for (const key in res) {
+              if (Object.prototype.hasOwnProperty.call(res, key)) {
+                const element = res[key];
+                console.log(element);
+                infoOrder.push(element + "%0a")
+              }
             }
+            infoOrder.push("%0a")
+            infoOrder.push("Terima Kasih CK :) %0a")
+
+            order = infoOrder.map(x => x).join("\n");
+            console.log(order);
+
+            window.open(
+              "https://api.whatsapp.com/send?phone=" + phone + "&text=" + order,
+              // "_blank"
+            );
+            localStorage.removeItem('cart')
+          } if (res['ordercode'] === 2) {
+            console.log("via kasir");
+            this.generateQrCode(res['ordervalue'])
+          } else {
+            console.log("pesan 1");
           }
-          infoOrder.push("%0a")
-          infoOrder.push("Terima Kasih CK :) %0a")
 
-          order = infoOrder.map(x => x).join("\n");
-          console.log(order);
-
-          window.open(
-            "https://api.whatsapp.com/send?phone=" + phone + "&text=" + order,
-            // "_blank"
-          );
-          localStorage.removeItem('cart')
         }
 
       })
@@ -164,8 +174,32 @@ export class PesananComponent implements OnInit {
       );
       dialogCustom.afterClosed();
     }
+  }
 
 
+
+
+
+  generateQrCode(obj) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = obj;
+    dialogConfig.backdropClass = "backdropBackground";
+    dialogConfig.disableClose = true;
+    dialogConfig.minWidth = "min-content";
+
+    const dialogGeneratQR = this.dialog.open(
+      QrcodeDialogComponent,
+      dialogConfig
+    );
+
+    dialogGeneratQR.afterClosed().subscribe(res => {
+      console.log(res);
+      if (res === 'finish') {
+        localStorage.removeItem('cart');
+        this.checkBadge()
+        this.callParent()
+      }
+    })
   }
 
 }
