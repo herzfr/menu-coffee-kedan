@@ -28,6 +28,7 @@ export class TrackingOrderComponent implements OnInit {
   idTrack;
   statusBar;
   nama;
+  isFinish = false;
   private stepDisabled: boolean = true;
   constructor(private dataService: DataserviceService, private route: Router) {
 
@@ -78,6 +79,7 @@ export class TrackingOrderComponent implements OnInit {
         break;
       case 3:
         this.steper.selectedIndex = 3;
+        this.isFinish = true;
         break;
     }
     // console.log(this.steper.selectedIndex);

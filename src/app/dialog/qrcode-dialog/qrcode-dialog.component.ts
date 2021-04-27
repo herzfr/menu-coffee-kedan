@@ -13,7 +13,7 @@ export class QrcodeDialogComponent implements OnInit {
 
   order: string;
   constructor(private dialogRef: MatDialogRef<QrcodeDialogComponent>, @Inject(MAT_DIALOG_DATA) data) {
-    this.order = JSON.stringify(data);
+    this.order = JSON.stringify(data) + "@";
     console.log(this.order);
   }
 

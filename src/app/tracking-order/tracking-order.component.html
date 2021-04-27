@@ -28,7 +28,7 @@
             <ng-template matStepLabel>Pesanan selesai</ng-template>
 
             <ng-lottie [options]="optionsFour" (animationCreated)="animationCreated($event)"></ng-lottie>
-            <h6 class="text-center text-info">Pesanan anda sudah selesai</h6>
+            <!-- <h6 class="text-center text-info">Pesanan anda sudah selesai</h6> -->
             <div>
               <button mat-raised-button color="accent" (click)="done()">Selesai</button>
             </div>
@@ -36,8 +36,8 @@
         </mat-vertical-stepper>
 
         <h5 class="card-title">Hi! {{ nama }}</h5>
-        <p class="card-text">Pesanan anda sedang dalam proses.
-        </p>
+        <p *ngIf="!isFinish" class="card-text">Pesanan anda sedang dalam proses.</p>
+        <p *ngIf="isFinish" class="card-text">Pesanan anda sudah selesai.</p>
         <button *ngIf="true" (click)="refresh()" class="btn-pesan">Refresh
           Status</button>
       </div>

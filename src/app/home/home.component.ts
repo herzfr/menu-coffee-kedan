@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     AOS.init();
     localStorage.removeItem('cart');
+    localStorage.removeItem('track');
   }
 
   doOrder() {
