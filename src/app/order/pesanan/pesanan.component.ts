@@ -1,9 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
+import { Router } from '@angular/router';
 import { QRCodeComponent } from 'angularx-qrcode';
 import { CustomDialogComponent } from 'src/app/dialog/custom-dialog/custom-dialog.component';
 import { QrcodeDialogComponent } from 'src/app/dialog/qrcode-dialog/qrcode-dialog.component';
 import { SendDialogComponent } from 'src/app/dialog/send-dialog/send-dialog.component';
+import { DataserviceService } from 'src/app/service/dataservice.service';
 
 @Component({
   selector: 'app-pesanan',
@@ -22,14 +24,16 @@ export class PesananComponent implements OnInit {
   private grandTotal: number = 0;
 
   private isHaveOrder: boolean = false;
+  private isHaveTrack: boolean = false;
 
-  constructor(private dialog: MatDialog) {
+  constructor(private dialog: MatDialog, private dataService: DataserviceService, private route: Router) {
 
   }
 
   ngOnInit() {
     this.checkBadge()
     this.checkTotal()
+    this.checkButtonTrack()
   }
 
   checkBadge() {
@@ -150,6 +154,17 @@ export class PesananComponent implements OnInit {
             this.generateQrCode(res['ordervalue'])
           } else {
             console.log("pesan 1");
+            this.dataService.sendOrder(res['ordervalue']).subscribe(res => {
+              if (res['codestatus'] === "00") {
+                let track = res['ordertrack'];
+                localStorage.setItem('track', JSON.stringify(track));
+                localStorage.removeItem('cart');
+                this.customDialog("check_circle", res['value'])
+                this.checkButtonTrack();
+              } else {
+                this.customDialog("sms_failed", "Gagal Memesan")
+              }
+            })
           }
 
         }
@@ -176,7 +191,14 @@ export class PesananComponent implements OnInit {
     }
   }
 
+  checkButtonTrack() {
+    if (localStorage.getItem('track') !== null) return this.isHaveTrack = true;
+    else this.isHaveTrack = false;
+  }
 
+  checkTrack() {
+    this.route.navigate(['/tracking'])
+  }
 
 
 
@@ -200,6 +222,27 @@ export class PesananComponent implements OnInit {
         this.callParent()
       }
     })
+  }
+
+
+  customDialog(icon, message) {
+
+    let obj: any = new Object();
+    obj.icon = icon;
+    obj.message = message;
+
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = obj;
+    dialogConfig.backdropClass = "backdropBackground";
+    dialogConfig.disableClose = true;
+    dialogConfig.maxWidth = "300px";
+
+    const dialogChooseMenu = this.dialog.open(
+      CustomDialogComponent,
+      dialogConfig
+    );
+
+    dialogChooseMenu.afterClosed()
   }
 
 }

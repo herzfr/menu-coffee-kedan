@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButton, MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatRippleModule, MatSelectModule, MatTabsModule } from '@angular/material';
+import { MatButton, MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatInputModule, MatRippleModule, MatSelectModule, MatStepperModule, MatTabsModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { OrderComponent } from './order/order.component';
 import { MakananComponent } from './order/makanan/makanan.component';
@@ -21,6 +21,14 @@ import { FormsModule } from '@angular/forms';
 import { QRCodeModule } from 'angularx-qrcode';
 import { QrcodeDialogComponent } from './dialog/qrcode-dialog/qrcode-dialog.component';
 import { TableDialogComponent } from './dialog/table-dialog/table-dialog.component';
+import { TrackingOrderComponent } from './tracking-order/tracking-order.component';
+import player from 'lottie-web';
+import { LottieModule } from 'ngx-lottie';
+
+export function playerFactory() {
+  return player;
+}
+
 
 @NgModule({
   declarations: [
@@ -35,7 +43,8 @@ import { TableDialogComponent } from './dialog/table-dialog/table-dialog.compone
     CustomDialogComponent,
     SendDialogComponent,
     QrcodeDialogComponent,
-    TableDialogComponent
+    TableDialogComponent,
+    TrackingOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +56,7 @@ import { TableDialogComponent } from './dialog/table-dialog/table-dialog.compone
     // OTHER
     CarouselModule,
     QRCodeModule,
+    LottieModule.forRoot({ player: playerFactory }),
 
 
     // MATERIAL
@@ -57,7 +67,8 @@ import { TableDialogComponent } from './dialog/table-dialog/table-dialog.compone
     MatIconModule,
     MatDialogModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatStepperModule
 
   ],
   entryComponents: [CustomDialogComponent, OrderDialogComponent, SendDialogComponent, QrcodeDialogComponent, TableDialogComponent],

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { OrderComponent } from './order/order.component';
+import { TrackingOrderComponent } from './tracking-order/tracking-order.component';
 
 
 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'order',
     component: OrderComponent
+  },
+  {
+    path: 'tracking',
+    component: TrackingOrderComponent
   },
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];

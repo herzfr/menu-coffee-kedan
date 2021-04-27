@@ -1,0 +1,47 @@
+<div class="container-fluid h-100">
+  <div class="row justify-content-center align-items-center text-center row-1">
+
+    <div class="card" style="width: 30rem;">
+      <div class="card-body">
+
+        <mat-vertical-stepper [linear]="isLinear" #steppers>
+          <mat-step [aria-labelledby]="stepDisabled ? 'disabled_Resi' : null" [stepControl]="1">
+            <ng-template matStepLabel>Pesanan Dalam Daftar Tunggu </ng-template>
+            <div>
+              <ng-lottie [options]="optionsOne" (animationCreated)="animationCreated($event)"></ng-lottie>
+              <h6 class="text-center text-info">Mohon menunggu, Pesanan anda akan dikonfirmasi oleh CK</h6>
+            </div>
+          </mat-step>
+          <mat-step [aria-labelledby]="stepDisabled ? 'disabled_Resi' : null" [stepControl]="2">
+            <ng-template matStepLabel>Pesanan diproses</ng-template>
+
+            <ng-lottie [options]="optionsTwo" (animationCreated)="animationCreated($event)"></ng-lottie>
+            <h6 class="text-center text-info">Pesanan telah diproses dan sedang dalam daftar tunggu pembuatan</h6>
+          </mat-step>
+          <mat-step [aria-labelledby]="stepDisabled ? 'disabled_Resi' : null" [stepControl]="3">
+            <ng-template matStepLabel>Pesanan dalam pembuatan</ng-template>
+
+            <ng-lottie [options]="optionsThree" (animationCreated)="animationCreated($event)"></ng-lottie>
+            <h6 class="text-center text-info">Pesanan anda sedang dibuat</h6>
+          </mat-step>
+          <mat-step [aria-labelledby]="stepDisabled ? 'disabled_Resi' : null" [stepControl]="4">
+            <ng-template matStepLabel>Pesanan selesai</ng-template>
+
+            <ng-lottie [options]="optionsFour" (animationCreated)="animationCreated($event)"></ng-lottie>
+            <h6 class="text-center text-info">Pesanan anda sudah selesai</h6>
+            <div>
+              <button mat-raised-button color="accent" (click)="done()">Selesai</button>
+            </div>
+          </mat-step>
+        </mat-vertical-stepper>
+
+        <h5 class="card-title">Hi! {{ nama }}</h5>
+        <p class="card-text">Pesanan anda sedang dalam proses.
+        </p>
+        <button *ngIf="true" (click)="refresh()" class="btn-pesan">Refresh
+          Status</button>
+      </div>
+    </div>
+
+  </div>
+</div>

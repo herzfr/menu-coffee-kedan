@@ -52,7 +52,8 @@
 
 
   <div *ngIf="isHaveOrder" class="col d-flex p-0 justify-content-center align-items-center mb-2">
-    <button (click)="doOrder()" mat-button class="btn-pesan">Checkout</button>
+    <button *ngIf="!isHaveTrack" (click)="doOrder()" mat-button class="btn-pesan">Checkout</button>
+    <button *ngIf="isHaveTrack" (click)="checkTrack()" mat-button class="btn-pesan">Lihat Status Orderan Anda</button>
   </div>
 
 
