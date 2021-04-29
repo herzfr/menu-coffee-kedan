@@ -6,6 +6,7 @@ import { CustomDialogComponent } from 'src/app/dialog/custom-dialog/custom-dialo
 import { QrcodeDialogComponent } from 'src/app/dialog/qrcode-dialog/qrcode-dialog.component';
 import { SendDialogComponent } from 'src/app/dialog/send-dialog/send-dialog.component';
 import { DataserviceService } from 'src/app/service/dataservice.service';
+import { SocketserviceService } from 'src/app/service/socketservice.service';
 
 @Component({
   selector: 'app-pesanan',
@@ -26,7 +27,7 @@ export class PesananComponent implements OnInit {
   private isHaveOrder: boolean = false;
   private isHaveTrack: boolean = false;
 
-  constructor(private dialog: MatDialog, private dataService: DataserviceService, private route: Router) {
+  constructor(private dialog: MatDialog, private dataService: DataserviceService, private route: Router, private socketService: SocketserviceService) {
 
   }
 
@@ -160,6 +161,7 @@ export class PesananComponent implements OnInit {
                 localStorage.setItem('track', JSON.stringify(track));
                 localStorage.removeItem('cart');
                 this.customDialog("check_circle", res['value'])
+                this.socketService.sendMessage("00")
                 this.checkButtonTrack();
               } else {
                 this.customDialog("sms_failed", "Gagal Memesan")

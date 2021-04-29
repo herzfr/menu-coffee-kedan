@@ -24,10 +24,14 @@ import { TableDialogComponent } from './dialog/table-dialog/table-dialog.compone
 import { TrackingOrderComponent } from './tracking-order/tracking-order.component';
 import player from 'lottie-web';
 import { LottieModule } from 'ngx-lottie';
+import { SocketserviceService } from './service/socketservice.service';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
 export function playerFactory() {
   return player;
 }
+
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
 
 @NgModule({
@@ -57,6 +61,7 @@ export function playerFactory() {
     CarouselModule,
     QRCodeModule,
     LottieModule.forRoot({ player: playerFactory }),
+    SocketIoModule.forRoot(config),
 
 
     // MATERIAL
@@ -72,7 +77,7 @@ export function playerFactory() {
 
   ],
   entryComponents: [CustomDialogComponent, OrderDialogComponent, SendDialogComponent, QrcodeDialogComponent, TableDialogComponent],
-  providers: [DataserviceService],
+  providers: [DataserviceService, SocketserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -186,8 +186,6 @@ export class MakananComponent implements OnInit {
 
     dialogChooseMenu.afterClosed().subscribe(res => {
       console.log(res);
-
-
     })
   }
 

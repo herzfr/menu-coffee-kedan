@@ -95,8 +95,6 @@ export class SendDialogComponent implements OnInit {
   }
 
   viaMeja() {
-
-
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = "";
     dialogConfig.backdropClass = "backdropBackground";
@@ -132,20 +130,6 @@ export class SendDialogComponent implements OnInit {
         this.dialogRef.close(pesanan)
       }
     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   }
 
 

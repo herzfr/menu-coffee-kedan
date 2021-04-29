@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions } from 'ngx-lottie';
 import { DataserviceService } from '../service/dataservice.service';
+import { SocketserviceService } from '../service/socketservice.service';
 
 @Component({
   selector: 'app-tracking-order',
@@ -30,12 +31,20 @@ export class TrackingOrderComponent implements OnInit {
   nama;
   isFinish = false;
   private stepDisabled: boolean = true;
-  constructor(private dataService: DataserviceService, private route: Router) {
+  private message;
+  constructor(private dataService: DataserviceService, private route: Router, private socketService: SocketserviceService) {
 
   }
 
   ngOnInit() {
     this.checkTrackId()
+    this.socketService
+      .getMessages()
+      .subscribe((message: string) => {
+        console.log(message);
+        this.checkTrackId()
+      });
+
   }
 
   checkTrackId() {
@@ -54,7 +63,7 @@ export class TrackingOrderComponent implements OnInit {
     obj.id = this.idTrack['trackid'];
     obj.nama = this.idTrack['trackname'];
     this.dataService.getStatusById(obj).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       if (res['codestatus'] == "00") {
         this.statusBar = res['values']
         this.changStepper()
@@ -64,23 +73,34 @@ export class TrackingOrderComponent implements OnInit {
 
   public changStepper() {
     // event: StepperSelectionEvent
-    this.nama = this.statusBar[0].nama;
-    // console.log(this.statusBar[0].status);
-    var test = 2;
-    switch (this.statusBar[0].status) {
-      case 0:
-        this.steper.selectedIndex = 0;
-        break;
-      case 1:
-        this.steper.selectedIndex = 1;
-        break;
-      case 2:
-        this.steper.selectedIndex = 2;
-        break;
-      case 3:
-        this.steper.selectedIndex = 3;
-        this.isFinish = true;
-        break;
+    // console.log(this.statusBar[0]);
+    if (this.statusBar[0] !== undefined) {
+      this.nama = this.statusBar[0].nama;
+      var test = 2;
+      switch (this.statusBar[0].status) {
+        case 0:
+          this.steper.selectedIndex = 0;
+          break;
+        case 1:
+          this.steper.selectedIndex = 1;
+          break;
+        case 2:
+          this.steper.selectedIndex = 2;
+          break;
+        case 3:
+          this.steper.selectedIndex = 3;
+          this.isFinish = true;
+          break;
+        case 4:
+          this.steper.selectedIndex = 3;
+          this.isFinish = true;
+          break;
+        default:
+          this.route.navigate(['/home'])
+          break;
+      }
+    } else {
+      this.route.navigate(['/home'])
     }
     // console.log(this.steper.selectedIndex);
   }
