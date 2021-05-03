@@ -23,7 +23,7 @@ export class SendDialogComponent implements OnInit {
     this.total = data.total;
     // this.totalPajak = data.pajak;
     // this.grandTotal = data.grandTotal;
-    console.log(this.daftarPesanan);
+    // console.log(this.daftarPesanan);
 
   }
 
@@ -107,7 +107,7 @@ export class SendDialogComponent implements OnInit {
     );
 
     dialogGetMeja.afterClosed().subscribe(response => {
-      console.log(response);
+      // console.log(response);
       if (response !== undefined) {
         let infoOrder = new Array;
         let order: string;

@@ -15,7 +15,7 @@ export class OrderDialogComponent implements OnInit {
 
   constructor(private dialogRef: MatDialogRef<OrderDialogComponent>, @Inject(MAT_DIALOG_DATA) data, private dialog: MatDialog) {
     this.menu = data;
-    console.log(data);
+    // console.log(data);
 
   }
 
@@ -72,7 +72,7 @@ export class OrderDialogComponent implements OnInit {
       obj.desc = event.desc;
       obj.qty = this.quantity;
       obj.avatar = event.avatar;
-      console.log(obj);
+      // console.log(obj);
       this.dialogRef.close(obj);
     }
 

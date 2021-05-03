@@ -40,7 +40,7 @@ export class PesananComponent implements OnInit {
   checkBadge() {
     let a = new Array;
     a = JSON.parse(localStorage.getItem('cart') || '[]');
-    console.log(a);
+    // console.log(a);
     if (a.length > 0) {
       this.isHaveOrder = true;
     } else {
@@ -59,7 +59,7 @@ export class PesananComponent implements OnInit {
   }
 
   delete(event) {
-    console.log(event);
+    // console.log(event);
     this.cart.forEach((item, index) => {
       if (index === event) {
         this.cart.splice(index, 1);
@@ -79,10 +79,10 @@ export class PesananComponent implements OnInit {
     a = JSON.parse(localStorage.getItem('cart') || '[]');
     if (a.length > 0) {
       a.forEach(item => {
-        console.log(item.harga);
+        // console.log(item.harga);
         this.total = this.total + (item.harga * item.qty)
       })
-      console.log(this.total);
+      // console.log(this.total);
       this.totalPajak = this.pajak * this.total;
       this.grandTotal = this.total + this.totalPajak;
     }
@@ -128,14 +128,14 @@ export class PesananComponent implements OnInit {
       let order
 
       dialogChooseMenu.afterClosed().subscribe(res => {
-        console.log(res);
+        // console.log(res);
         if (res != undefined) {
 
           if (res['ordercode'] === 3) {
             for (const key in res) {
               if (Object.prototype.hasOwnProperty.call(res, key)) {
                 const element = res[key];
-                console.log(element);
+                // console.log(element);
                 infoOrder.push(element + "%0a")
               }
             }
@@ -143,7 +143,7 @@ export class PesananComponent implements OnInit {
             infoOrder.push("Terima Kasih CK :) %0a")
 
             order = infoOrder.map(x => x).join("\n");
-            console.log(order);
+            // console.log(order);
 
             window.open(
               "https://api.whatsapp.com/send?phone=" + phone + "&text=" + order,
@@ -151,10 +151,10 @@ export class PesananComponent implements OnInit {
             );
             localStorage.removeItem('cart')
           } if (res['ordercode'] === 2) {
-            console.log("via kasir");
+            // console.log("via kasir");
             this.generateQrCode(res['ordervalue'])
           } else {
-            console.log("pesan 1");
+            // console.log("pesan 1");
             this.dataService.sendOrder(res['ordervalue']).subscribe(res => {
               if (res['codestatus'] === "00") {
                 let track = res['ordertrack'];
@@ -217,7 +217,7 @@ export class PesananComponent implements OnInit {
     );
 
     dialogGeneratQR.afterClosed().subscribe(res => {
-      console.log(res);
+      // console.log(res);
       if (res === 'finish') {
         localStorage.removeItem('cart');
         this.checkBadge()

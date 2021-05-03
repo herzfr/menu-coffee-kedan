@@ -117,7 +117,7 @@ export class MakananComponent implements OnInit {
   }
 
   choose(event) {
-    console.log(event);
+    // console.log(event);
 
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = event;
@@ -132,7 +132,7 @@ export class MakananComponent implements OnInit {
 
     dialogChooseMenu.afterClosed().subscribe(res => {
       if (res != undefined) {
-        console.log(res);
+        // console.log(res);
 
         // let list: any = new Array;
         // list = [data];
@@ -141,17 +141,17 @@ export class MakananComponent implements OnInit {
 
         let a = new Array;
         if (localStorage.getItem('cart') == null) {
-          console.log(res);
+          // console.log(res);
           a.push(res)
           localStorage.setItem('cart', JSON.stringify(a));
           this.callParent()
         } else {
-          console.log('ada isi');
+          // console.log('ada isi');
           a = JSON.parse(localStorage.getItem('cart') || '[]');
           a.push(res)
           localStorage.removeItem('cart')
           localStorage.setItem('cart', JSON.stringify(a));
-          console.log(a);
+          // console.log(a);
           this.callParent()
         }
 
@@ -167,7 +167,7 @@ export class MakananComponent implements OnInit {
 
 
   testData(event) {
-    console.log(event);
+    // console.log(event);
 
     let obj: any = new Object();
     obj.icon = "priority_high";
@@ -185,7 +185,7 @@ export class MakananComponent implements OnInit {
     );
 
     dialogChooseMenu.afterClosed().subscribe(res => {
-      console.log(res);
+      // console.log(res);
     })
   }
 

@@ -12,7 +12,7 @@ export class CustomDialogComponent implements OnInit {
   private message
 
   constructor(private dialogRef: MatDialogRef<CustomDialogComponent>, @Inject(MAT_DIALOG_DATA) data) {
-    console.log(data);
+    // console.log(data);
     this.icon = data.icon;
     this.message = data.message;
   }

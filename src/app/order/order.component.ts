@@ -23,7 +23,7 @@ export class OrderComponent implements OnInit, AfterViewInit {
 
     // check if back or forward button is pressed.
     this.location.onPopState(() => {
-      console.log("test");
+      // console.log("test");
       // router.navigateByUrl("/home", { skipLocationChange: true });
     });
   }
@@ -33,20 +33,20 @@ export class OrderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    console.log('afterViewInit => ', this.tabGroup.selectedIndex);
+    // console.log('afterViewInit => ', this.tabGroup.selectedIndex);
   }
 
   checkBadge() {
     let a = new Array;
     a = JSON.parse(localStorage.getItem('cart') || '[]');
-    console.log(a.length);
+    // console.log(a.length);
     this.cart = a.length;
     this.submit()
   }
 
   tabChanged(tabChangeEvent: MatTabChangeEvent): void {
-    console.log('tabChangeEvent => ', tabChangeEvent);
-    console.log('index => ', tabChangeEvent.index);
+    // console.log('tabChangeEvent => ', tabChangeEvent);
+    // console.log('index => ', tabChangeEvent.index);
   }
 
   goToListOrder() {
@@ -63,7 +63,7 @@ export class OrderComponent implements OnInit, AfterViewInit {
     const verticalOffset = window.pageYOffset
       || document.documentElement.scrollTop
       || document.body.scrollTop || 0;
-    console.log(verticalOffset);
+    // console.log(verticalOffset);
     if (verticalOffset > 100) {
       $('.navbar-brand').addClass('fixed-bottom')
       $('.mat-tab-header').addClass('fixed-t')
