@@ -41,7 +41,7 @@ export class TrackingOrderComponent implements OnInit {
     this.socketService
       .getMessages()
       .subscribe((message: string) => {
-        console.log(message);
+        // console.log(message);
         this.checkTrackId()
       });
 
@@ -50,7 +50,7 @@ export class TrackingOrderComponent implements OnInit {
   checkTrackId() {
     if (localStorage.getItem('track') !== null) {
       this.idTrack = JSON.parse(localStorage.getItem('track'));
-      console.log(this.idTrack);
+      // console.log(this.idTrack);
       this.getStatusOrder()
     } else {
       this.route.navigate(['/home'])
@@ -63,7 +63,7 @@ export class TrackingOrderComponent implements OnInit {
     obj.id = this.idTrack['trackid'];
     obj.nama = this.idTrack['trackname'];
     this.dataService.getStatusById(obj).subscribe(res => {
-      // console.log(res);
+      // // console.log(res);
       if (res['codestatus'] == "00") {
         this.statusBar = res['values']
         this.changStepper()
@@ -73,7 +73,7 @@ export class TrackingOrderComponent implements OnInit {
 
   public changStepper() {
     // event: StepperSelectionEvent
-    // console.log(this.statusBar[0]);
+    // // console.log(this.statusBar[0]);
     if (this.statusBar[0] !== undefined) {
       this.nama = this.statusBar[0].nama;
       var test = 2;
@@ -102,11 +102,11 @@ export class TrackingOrderComponent implements OnInit {
     } else {
       this.route.navigate(['/home'])
     }
-    // console.log(this.steper.selectedIndex);
+    // // console.log(this.steper.selectedIndex);
   }
 
   animationCreated(animationItem: AnimationItem): void {
-    // console.log(animationItem);
+    // // console.log(animationItem);
   }
 
 
