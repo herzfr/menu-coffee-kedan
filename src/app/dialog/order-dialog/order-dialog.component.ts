@@ -9,9 +9,9 @@ import { CustomDialogComponent } from '../custom-dialog/custom-dialog.component'
 })
 export class OrderDialogComponent implements OnInit {
 
-  private menu;
-  private quantity: number = 0;
-  private i = 0;
+  menu;
+  quantity: number = 0;
+  i = 0;
 
   constructor(private dialogRef: MatDialogRef<OrderDialogComponent>, @Inject(MAT_DIALOG_DATA) data, private dialog: MatDialog) {
     this.menu = data;

@@ -31,7 +31,9 @@ export function playerFactory() {
   return player;
 }
 
-const config: SocketIoConfig = { url: 'https://api.dcoffeekedan.com/api', options: {} };
+
+
+const config: SocketIoConfig = { url: 'https://api.dcoffeekedan.com', options: { "path": "/api/socket.io/" } };
 
 
 @NgModule({

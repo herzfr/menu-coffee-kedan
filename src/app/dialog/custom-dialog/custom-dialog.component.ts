@@ -8,8 +8,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class CustomDialogComponent implements OnInit {
 
-  private icon;
-  private message
+  icon;
+  message
 
   constructor(private dialogRef: MatDialogRef<CustomDialogComponent>, @Inject(MAT_DIALOG_DATA) data) {
     // console.log(data);

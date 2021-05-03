@@ -30,8 +30,8 @@ export class TrackingOrderComponent implements OnInit {
   statusBar;
   nama;
   isFinish = false;
-  private stepDisabled: boolean = true;
-  private message;
+  stepDisabled: boolean = true;
+  message;
   constructor(private dataService: DataserviceService, private route: Router, private socketService: SocketserviceService) {
 
   }

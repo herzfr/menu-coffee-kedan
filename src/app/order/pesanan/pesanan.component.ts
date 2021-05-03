@@ -16,19 +16,18 @@ import { SocketserviceService } from 'src/app/service/socketservice.service';
 export class PesananComponent implements OnInit {
   @Output() someEvent = new EventEmitter<string>();
 
-  private cart;
+  cart;
 
-  private pajak = 10 / 100;
+  pajak = 10 / 100;
 
-  private total: number = 0;
-  private totalPajak: number = 0;
-  private grandTotal: number = 0;
+  total: number = 0;
+  totalPajak: number = 0;
+  grandTotal: number = 0;
 
-  private isHaveOrder: boolean = false;
-  private isHaveTrack: boolean = false;
+  isHaveOrder: boolean = false;
+  isHaveTrack: boolean = false;
 
   constructor(private dialog: MatDialog, private dataService: DataserviceService, private route: Router, private socketService: SocketserviceService) {
-
   }
 
   ngOnInit() {
@@ -160,8 +159,8 @@ export class PesananComponent implements OnInit {
                 let track = res['ordertrack'];
                 localStorage.setItem('track', JSON.stringify(track));
                 localStorage.removeItem('cart');
-                this.customDialog("check_circle", res['value'])
                 this.socketService.sendMessage("00")
+                this.customDialog("check_circle", res['value'])
                 this.checkButtonTrack();
               } else {
                 this.customDialog("sms_failed", "Gagal Memesan")

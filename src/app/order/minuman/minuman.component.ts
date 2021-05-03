@@ -12,14 +12,24 @@ declare var $: any;
 export class MinumanComponent implements OnInit {
   @Output() someEvent = new EventEmitter<string>();
 
-  private coffee;
-  private noncoffee;
-  private juice;
-  private mocktail;
+  coffee;
+  noncoffee;
+  juice;
+  mocktail;
+
+  ads;
 
   constructor(private dataService: DataserviceService, private dialog: MatDialog) { }
 
   ngOnInit() {
+
+    this.dataService.getAds().subscribe(res => {
+      // console.log(res);
+      // this.testData(res)
+      if (res.codestatus == "00") {
+        this.ads = res.values;
+      }
+    })
 
     this.dataService.getProductById(1).subscribe(res => {
       // console.log(res);

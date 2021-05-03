@@ -10,12 +10,12 @@ import { TableDialogComponent } from '../table-dialog/table-dialog.component';
 })
 export class SendDialogComponent implements OnInit {
 
-  private daftarPesanan
-  private desc;
-  private total: number = 0;
+  daftarPesanan
+  desc;
+  total: number = 0;
   // private totalPajak: number = 0;
   // private grandTotal: number = 0;
-  private nama = "";
+  nama = "";
 
 
   constructor(private dialogRef: MatDialogRef<SendDialogComponent>, @Inject(MAT_DIALOG_DATA) data, private dialog: MatDialog) {
