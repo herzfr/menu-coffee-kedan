@@ -24,7 +24,8 @@
 
 
 .cart-s {
-  padding: 15px;
+  padding: 15px !important;
+  margin: 10px !important;
   border-radius: 20px;
   background: white;
   -webkit-box-shadow: 3px 3px 10px 1px #00000073;
@@ -131,6 +132,9 @@
   width: fit-content;
   transition: all 0.1s ease !important;
   margin: 5px !important;
+  /* left: 20px; */
+  width: 100px;
+  padding-left: 290px;
 }
 
 @media (max-width: 575.98px) {
@@ -143,7 +147,8 @@
   }
 
   .cart-s {
-    padding: 10px;
+    padding: 15px !important;
+    margin: 10px !important;
     border-radius: 15px;
   }
 

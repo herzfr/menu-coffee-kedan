@@ -106,3 +106,8 @@
   color: #FFFFFF;
   text-shadow: 0px 1px 7px #FFD700;
 }
+
+
+.img-kosong {
+  width: inherit;
+}
