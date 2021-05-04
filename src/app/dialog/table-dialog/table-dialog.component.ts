@@ -11,9 +11,6 @@ export class TableDialogComponent implements OnInit {
   selectedValue: number;
   selects = [];
 
-
-
-
   constructor(
     public dialogRef: MatDialogRef<TableDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data) { }
