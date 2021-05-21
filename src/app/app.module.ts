@@ -32,8 +32,9 @@ export function playerFactory() {
 }
 
 
-
-const config: SocketIoConfig = { url: 'https://api.dcoffeekedan.com', options: { "path": "/api/socket.io/" } };
+const api2 = 'http://192.168.100.16:8080'
+const api = 'https://api.dcoffeekedan.com'
+const config: SocketIoConfig = { url: api2, options: { "path": "/api/socket.io/" } };
 
 
 @NgModule({

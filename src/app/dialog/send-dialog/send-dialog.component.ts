@@ -73,22 +73,43 @@ export class SendDialogComponent implements OnInit {
 
   viaKasir() {
 
+    // let infoOrder = new Array;
+    // let order: string;
+
+    // this.daftarPesanan.forEach((item, index) => {
+    //   infoOrder.push((index + 1) + ". " + item.name + ", qty : " + item.qty);
+    // });
+    // order = infoOrder.map(x => x).join("\n");
+
+    // let obj: any = new Object;
+    // obj.nama = this.nama;
+    // obj.meja = 0;
+    // obj.menu = order;
+    // obj.desc = this.desc ? this.desc : "";
+    // obj.total = this.total;
+    // obj.pajak = this.totalPajak;
+    // obj.grandTotal = this.grandTotal;
+
     let infoOrder = new Array;
-    let order: string;
+    // let order: string;
 
     this.daftarPesanan.forEach((item, index) => {
-      infoOrder.push((index + 1) + ". " + item.name + ", qty : " + item.qty);
+      // infoOrder.push((index + 1) + ". " + item.name + ", qty : " + item.qty);
+      let obj: any = new Object;
+      obj.id = item.id;
+      obj.qty = item.qty;
+      obj.discount = 0;
+      infoOrder.push(obj);
     });
-    order = infoOrder.map(x => x).join("\n");
+    // order = infoOrder.map(x => x).join("\n");\
 
     let obj: any = new Object;
     obj.nama = this.nama;
     obj.meja = 0;
-    obj.menu = order;
+    obj.menu = JSON.stringify(infoOrder);
     obj.desc = this.desc ? this.desc : "";
     obj.total = this.total;
-    // obj.pajak = this.totalPajak;
-    // obj.grandTotal = this.grandTotal;
+
 
     const pesanan = { ordercode: 2, ordervalue: obj }
     this.dialogRef.close(pesanan)
@@ -109,23 +130,45 @@ export class SendDialogComponent implements OnInit {
     dialogGetMeja.afterClosed().subscribe(response => {
       // console.log(response);
       if (response !== undefined) {
+        // let infoOrder = new Array;
+        // let order: string;
+
+        // this.daftarPesanan.forEach((item, index) => {
+        //   infoOrder.push((index + 1) + ". " + item.name + ", qty : " + item.qty);
+        // });
+        // order = infoOrder.map(x => x).join("\n");
+
+        // let obj: any = new Object;
+        // obj.nama = this.nama;
+        // obj.meja = response;
+        // obj.menu = order;
+        // obj.desc = this.desc ? this.desc : "";
+        // obj.total = this.total;
+        // // obj.pajak = this.totalPajak;
+        // // obj.grandTotal = this.grandTotal;
+
+
         let infoOrder = new Array;
-        let order: string;
+        // let order: string;
 
         this.daftarPesanan.forEach((item, index) => {
-          infoOrder.push((index + 1) + ". " + item.name + ", qty : " + item.qty);
+          // infoOrder.push((index + 1) + ". " + item.name + ", qty : " + item.qty);
+          let obj: any = new Object;
+          obj.id = item.id;
+          obj.qty = item.qty;
+          obj.discount = 0;
+          infoOrder.push(obj);
         });
-        order = infoOrder.map(x => x).join("\n");
+        // order = infoOrder.map(x => x).join("\n");\
 
         let obj: any = new Object;
         obj.nama = this.nama;
         obj.meja = response;
-        obj.menu = order;
+        obj.menu = JSON.stringify(infoOrder);
         obj.desc = this.desc ? this.desc : "";
         obj.total = this.total;
-        // obj.pajak = this.totalPajak;
-        // obj.grandTotal = this.grandTotal;
 
+        // console.log(obj);
         const pesanan = { ordercode: 1, ordervalue: obj }
         this.dialogRef.close(pesanan)
       }

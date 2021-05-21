@@ -8,8 +8,8 @@ import { catchError, timeout } from 'rxjs/operators';
 })
 export class DataserviceService {
 
-  private apiUrl = "https://api.dcoffeekedan.com/api/";
-  // private apiUrl = "http://192.168.100.16:8080/api/";
+  // private apiUrl = "https://api.dcoffeekedan.com/api/";
+  private apiUrl = "http://192.168.100.16:8080/api/";
   private timeOut: number = 30000;
 
   headers_object = new HttpHeaders()
